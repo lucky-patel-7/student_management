@@ -27,9 +27,12 @@ pipeline {
   }
   post {
     failure {
-      mail to: "lbp7198@gmail.com",
-           subject: "Build failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
-           body: "The build failed. Please check the console output.\n\n${env.BUILD_URL}"
+      script {
+        def consoleLog = currentBuild.rawBuild.getLog(1000)
+        mail to: "lbp7198@gmail.com",
+             subject: "Build failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
+             body: "The build failed. Please check the console output:\n\n${consoleLog}\n\n${env.BUILD_URL}"
+      }
     }
   }
 }
