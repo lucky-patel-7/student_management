@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+.question-list{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 20px;
+}
+.question-loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.right-card {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    height: fit-content;
+}
+.teacher-right-card {
+    width: 90%;
+    margin-top: 10px;
+}
+.question-list a{
+    text-decoration-line: none;
+    font-size: 19px;
+    font-weight: 500;
+    color:rgb(77, 77, 185);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.question-list li{
+    margin-top: 20px;
+    list-style: none;
+}
+.teacher-right-card h3{
+    font-weight: 800;
+}
+.right-card h3 {
+    background-color: black;
+    text-align: left;
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+}
+.search-box .addh {
+    background-color:#2596be;
+    text-align: left;
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+    margin: 0px 0px 0px 15px;
+    font-weight: 800;
+    border: none;
+}
+.search-box h3{
+    flex:4
+}
+
+.service-container {
+    display: grid;
+    padding: 0px 50px;
+    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+    grid-gap: 1rem;
+}
+
+.service-card {
+    /* margin:0px 20px 10px 20px; */
+   height: 140px;
+   color:#f9f9fa;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color:#2596be;
+   border-radius: 10px;
+}
+
+.service-card p {
+    font-size: 16px;
+    line-height: 1.5rem;
+    color:#f9f9fa;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    width: 130px;
+    height: 20px;
+    padding-top: 3px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.service-icon {
+    height: 40px;
+    font-size: 24px;
+    color:#f9f9fa;
+}
+/* .sortby-cal {
+    position: absolute;
+    background-color: blueviolet;
+    right:9%;
+    top:21%;
+    background-color: #f9f9fa;
+    border: 1px solid grey;
+    border-radius: 5px;
+} */
+.sortby-select{
+    background-color:white;
+    display: flex;
+   width: 100%;
+   border: none;
+}
+.getQue{
+    width: fit-content;
+}
+.open-sort-cal select:focus{
+    border:none;
+}
+

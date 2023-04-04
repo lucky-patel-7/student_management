@@ -1,0 +1,38 @@
+.leave-detail-status h3 {
+    width: 100%;
+    background-color: black;
+    text-align: left;
+    color: white;
+    font-size: 13px;
+    padding: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.leave-detail-status {
+    width: 80%;
+}
+
+table,
+td,
+th {
+    border: 1px solid black;
+}
+
+th {
+    color: white;
+    height: 40px;
+    background-color: #2596be
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 30px;
+}
+
+td {
+    height: 40px;
+    vertical-align: bottom;
+    line-height: 40px;
+}

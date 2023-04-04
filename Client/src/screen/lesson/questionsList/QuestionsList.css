@@ -1,0 +1,56 @@
+.question-listing{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    height: fit-content;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.listing-to-question {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.listing-to-question h3{
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+    font-weight: 800;
+}
+.status-and-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.submit-homework-status {
+    color:rgb(12, 217, 12);
+}
+.pending-homework-status{
+    color:red;
+    width: 100px;
+}
+.hstatus {
+    width: 60px;
+}
+.hname{
+    color:#0482b0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-decoration-line: underline;
+}
+.hhomework{
+    color: rgb(135, 131, 131);
+    margin-top: 5px;
+}

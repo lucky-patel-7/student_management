@@ -1,0 +1,54 @@
+.leave-app-form{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin-bottom: 20px;
+}
+.leave-app-form input{
+    background-color: #f0f0f0;
+    line-height: 30px;
+    border:1px solid #dcdddd;
+    padding-left: 10px;
+
+}
+.leave-app-area{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+.leave-app-form select{
+    background-color: #f0f0f0;
+    padding: 6px 5px;
+    border:1px solid #dcdddd
+}
+.leave-app-area textarea{
+    background-color: #f0f0f0;
+    border:1px solid #dcdddd;
+    padding-left: 10px;
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+.leave-app-form label{
+    text-align: left;
+    color:#787a79;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 4px;
+}
+.leave-app-area label{
+    text-align: left;
+    color:#787a79;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 4px;
+}
+textarea:focus, input:focus, select:focus{
+    outline: none;
+}
+.leave-app-form input:focus, select:focus{
+    border: 1px solid #9c9e9d;
+  }
+  .leave-app-area textarea:focus{
+    border: 1px solid #9c9e9d;
+  }

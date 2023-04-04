@@ -1,0 +1,41 @@
+.dashboard-title {
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    padding-left: 30px;
+
+}
+
+.dashboard-title h1 {
+    font-size: 22px;
+    margin-left: 10px;
+    padding-bottom: 3px;
+}
+
+.dashboard-title .name-heading {
+    font-size: 18px;
+    margin-left: auto;
+    text-transform: uppercase;
+}
+
+.name-heading span {
+    font-size: 22px;
+}
+
+.dashboard-title span {
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    padding: 0px 6%;
+    margin-bottom: 10px;
+}

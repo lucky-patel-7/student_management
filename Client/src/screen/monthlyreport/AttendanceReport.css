@@ -1,0 +1,17 @@
+.monthly-container{
+    width: 80%;
+}
+.present-stu{
+    color:green;
+    font-weight: 700;
+}
+.absent-stu{
+    color:red;
+    font-weight: 700;
+}
+.no-data-found{
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+}

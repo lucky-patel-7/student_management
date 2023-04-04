@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+.left-card {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+.leftcard-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.teacher-left-card {
+    width: 30%;
+    margin-top: 10px;
+}
+.teacher-left-card h3{
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.profile-imgcal{
+    margin-top: 20px;
+}
+
+.left-card h3 {
+    background-color: black;
+    text-align: left;
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+}
+.student-detail span{
+    font-weight: 600;
+}
+.profile-img {
+    width: 240px;
+    height: 160px;
+    border-radius: 10px;
+    text-align: center;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.student-detail .user-email {
+    margin-top: 20px;
+}
+
+.student-detail {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.student-detail p {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5rem;
+    color: #051427;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.add-homework {
+    margin-top:30px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.write-question {
+    margin-bottom: 5px;
+    color:#1a6d8c;
+    font-weight: 800;
+    font-family: 'Times New Roman', Times, serif;
+}
+.write-question-input{
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    
+}
+.homework-date{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    color:#1a6d8c;
+    font-weight: 800;
+    font-family: 'Times New Roman', Times, serif;
+}
+.homework-input-date{
+    margin-left: 10px;
+}
+.add-to-homework{
+    width: 100%;
+}
+.add-to-homework button{
+    background-color: #1a6d8c;
+    border: none;
+    color:rgb(241, 237, 237);
+    /* padding:10px 20px; */
+    padding: 10px 0px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 30px;
+  width: 100%;
+}

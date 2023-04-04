@@ -1,0 +1,147 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.loginCal {
+    width: 100%;
+    background-color: #282c34;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginSubCal {
+    padding: 40px 40px 40px !important;
+    background-color: white;
+    width: 400px;
+    border-radius: 5px;
+}
+.loginSubCal p{
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #9A9EA9;
+}
+.navigate-signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    line-height: 20px;
+}
+.navigate-signup button{
+    background-color:white;
+    margin: 0;
+    color:  #026fd4;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 300ms;
+    margin-left: 5px;
+    font-weight: 600;
+}
+.navigate-signup p{
+    padding: 0;
+    margin: 0;
+}
+/* .fieldCal{
+    align-items:center;
+    display: flex;
+    border : 1px solid #eee;
+    padding-left: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    height: 40px;
+    outline: none;
+    font-size: 17px;
+    
+}
+.form-control::placeholder{
+    color: #AEAFB1;
+}
+.fieldCal input{
+    border : none;
+    padding-left: 8px;
+}
+.form-control:focus{
+    border:none;
+    outline: none;
+}
+.fieldCal span{
+    color: #777;
+    font-size: 19px;
+} */
+.loginTitle{
+    color: #026fd4;
+    font-size: 33px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+}
+
+.middleCalLogin{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.forgot-pass{
+    text-decoration: none;
+    color: #7F7FD5;
+    font-size: 13px;
+    text-align: right;
+    width: calc(100% – 135px);
+    margin: 2px 0;
+    display: inline-block;
+    vertical-align: top;
+    transition: all 0.3s ease 0s;
+}
+
+.forgot-pass:hover{
+    color: #9A9EA9;
+    text-decoration: underline;
+}
+.checkboxCal input{
+    width: 12px;
+    margin-top: 0;
+    background-color: aqua;
+    display: inline-block;
+}
+.checkboxCal label{
+    color: #9A9EA9;
+    font-weight: normal;
+    font-size: 14px;
+    vertical-align:top;
+    padding-left: 3px;
+}
+.login-btn{
+    color: #fff;
+    background: linear-gradient(to right, #33a3ff, #0675cf, #4cd5ff);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 38px;
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 5px;
+    border: none;
+    display: inline-block;
+    transition: all 0.6s ease 0s;
+}
+.login-btn:hover{
+    color: #fff;
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.login-btn:focus{ outline: none; }
+
+@media only screen and (max-width: 480px){
+    .loginSubCal{
+        padding: 40px 20px 40px !important;
+    }
+}

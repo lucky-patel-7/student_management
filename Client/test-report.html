@@ -1,0 +1,232 @@
+<html><head><meta charset="utf-8"/><title>Test Report</title><style type="text/css">html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+body {
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+}
+#jesthtml-content {
+  margin: 0 auto;
+  max-width: 70rem;
+}
+header {
+  display: flex;
+  align-items: center;
+}
+#title {
+  margin: 0;
+  flex-grow: 1;
+}
+#logo {
+  height: 4rem;
+}
+#timestamp {
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/** SUMMARY */
+#summary {
+  color: #333;
+  margin: 2rem 0;
+  display: flex;
+  font-family: monospace;
+  font-size: 1rem;
+}
+#summary > div {
+  margin-right: 2rem;
+  background: #eee;
+  padding: 1rem;
+  min-width: 15rem;
+}
+#summary > div:last-child {
+  margin-right: 0;
+}
+@media only screen and (max-width: 720px) {
+  #summary {
+    flex-direction: column;
+  }
+  #summary > div {
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+  #summary > div:first-child {
+    margin-top: 0;
+  }
+}
+
+.summary-total {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.summary-passed {
+  color: #4f8a10;
+  border-left: 0.4rem solid #4f8a10;
+  padding-left: 0.5rem;
+}
+.summary-failed,
+.summary-obsolete-snapshots {
+  color: #d8000c;
+  border-left: 0.4rem solid #d8000c;
+  padding-left: 0.5rem;
+}
+.summary-pending {
+  color: #9f6000;
+  border-left: 0.4rem solid #9f6000;
+  padding-left: 0.5rem;
+}
+.summary-empty {
+  color: #999;
+  border-left: 0.4rem solid #999;
+}
+
+.test-result {
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+}
+.test-result:last-child {
+  border: 0;
+}
+.test-result.passed {
+  background-color: #dff2bf;
+  color: #4f8a10;
+}
+.test-result.failed {
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.test-result.pending {
+  background-color: #ffdf61;
+  color: #9f6000;
+}
+
+.test-info {
+  display: flex;
+  justify-content: space-between;
+}
+.test-suitename {
+  width: 20%;
+  text-align: left;
+  font-weight: bold;
+  word-break: break-word;
+}
+.test-title {
+  width: 40%;
+  text-align: left;
+  font-style: italic;
+}
+.test-status {
+  width: 20%;
+  text-align: right;
+}
+.test-duration {
+  width: 10%;
+  text-align: right;
+  font-size: 0.75rem;
+}
+
+.failureMessages {
+  padding: 0 1rem;
+  margin-top: 1rem;
+  border-top: 1px dashed #d8000c;
+}
+.failureMessages.suiteFailure {
+  border-top: none;
+}
+.failureMsg {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.suite-container {
+  margin-bottom: 2rem;
+}
+.suite-info {
+  padding: 1rem;
+  background-color: #eee;
+  color: #777;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.suite-info .suite-path {
+  word-break: break-all;
+  flex-grow: 1;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.suite-info .suite-time {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+  background-color: #d8000c;
+  color: #fff;
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #efefef;
+}
+.suite-consolelog-header {
+  font-weight: bold;
+}
+.suite-consolelog-item {
+  padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-consolelog-item-origin {
+  color: #777;
+  font-weight: bold;
+}
+.suite-consolelog-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* OBSOLETE SNAPSHOTS */
+.suite-obsolete-snapshots {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.suite-obsolete-snapshots-header {
+  font-weight: bold;
+}
+.suite-obsolete-snapshots-item {
+  padding: 0.5rem;
+}
+.suite-obsolete-snapshots-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-obsolete-snapshots-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+</style></head><body><div id="jesthtml-content"><header><h1 id="title">Test Report</h1></header><div id="metadata-container"><div id="timestamp">Started: 2023-04-04 10:50:07</div><div id="summary"><div id="suite-summary"><div class="summary-total">Suites (16)</div><div class="summary-passed">15 passed</div><div class="summary-failed">1 failed</div><div class="summary-pending summary-empty">0 pending</div></div><div id="test-summary"><div class="summary-total">Tests (26)</div><div class="summary-passed">25 passed</div><div class="summary-failed">1 failed</div><div class="summary-pending summary-empty">0 pending</div></div></div></div><div id="suite-1" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/LeftCard.test.js</div><div class="suite-time">1.43s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">LeftCard</div><div class="test-title">renders error when API call fails</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-2" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/Punch.test.js</div><div class="suite-time">1.52s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Punch</div><div class="test-title">should render Punch</div><div class="test-status">passed</div><div class="test-duration">0.095s</div></div></div><div class="test-result failed"><div class="test-info"><div class="test-suitename">Punch</div><div class="test-title">async api call</div><div class="test-status">failed</div><div class="test-duration">0.016s</div></div></div></div></div><div id="suite-3" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/Login.test.js</div><div class="suite-time">1.579s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">should have a email and password field also a submit button</div><div class="test-status">passed</div><div class="test-duration">0.06s</div></div></div></div></div><div id="suite-4" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/LeaveApplication.test.js</div><div class="suite-time">1.771s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">LeaveApplication</div><div class="test-title">should leave application render without crashing</div><div class="test-status">passed</div><div class="test-duration">0.01s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">LeaveApplication</div><div class="test-title">should render without crashing</div><div class="test-status">passed</div><div class="test-duration">0.291s</div></div></div></div></div><div id="suite-5" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/StudentService.test.js</div><div class="suite-time">1.804s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">StudentService</div><div class="test-title">isModal is true then render Punch</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">StudentService</div><div class="test-title">isCalendar is true then render AttendanceCalendar</div><div class="test-status">passed</div><div class="test-duration">0.015s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">StudentService</div><div class="test-title">the listing has Leave application on it</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div></div></div><div id="suite-6" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/index.test.js</div><div class="suite-time">1.802s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">renders without crashing</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div></div></div><div id="suite-7" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/Home.test.js</div><div class="suite-time">1.902s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Home</div><div class="test-title">match snapshot</div><div class="test-status">passed</div><div class="test-duration">0.032s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Home</div><div class="test-title">should match boolean</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Home</div><div class="test-title">loader is null and undefined</div><div class="test-status">passed</div><div class="test-duration">0.016s</div></div></div></div></div><div id="suite-8" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/Header.test.js</div><div class="suite-time">0.338s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Header</div><div class="test-title">should render without crashing</div><div class="test-status">passed</div><div class="test-duration">0.011s</div></div></div></div></div><div id="suite-9" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/RightCard.test.js</div><div class="suite-time">0.499s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">forEach mock function</div><div class="test-status">passed</div><div class="test-duration">0.01s</div></div></div></div></div><div id="suite-10" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/Navbar.test.js</div><div class="suite-time">0.453s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">should first</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">render list Item</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-11" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/FakeTimer.test.js</div><div class="suite-time">0.25s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">waits 1 second before ending the game</div><div class="test-status">passed</div><div class="test-duration">0.005s</div></div></div></div></div><div id="suite-12" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/InfiniteTimerGame.test.js</div><div class="suite-time">0.316s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">infiniteTimerGame</div><div class="test-title">schedules a 10-second timer after 1 second</div><div class="test-status">passed</div><div class="test-duration">0.034s</div></div></div></div></div><div id="suite-13" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/Other.test.js</div><div class="suite-time">0.233s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">shows how async / await works</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div></div></div><div id="suite-14" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/async/__tests__/user.test.js</div><div class="suite-time">0.244s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">works with promises</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">works with async/await</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">tests error with promises</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">tests error with async/await</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div></div></div><div id="suite-15" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/AdvanceTimer.test.js</div><div class="suite-time">0.197s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename"> </div><div class="test-title">calls the callback after 1 second via advanceTimersByTime</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div></div></div><div id="suite-16" class="suite-container"><div class="suite-info"><div class="suite-path">/Users/pradip/Desktop/student_management/Client/src/unittesting/MyProfile.test.js</div><div class="suite-time">0.221s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">MyProfile</div><div class="test-title">match snapshot</div><div class="test-status">passed</div><div class="test-duration">0.006s</div></div></div></div></div></div></body></html>

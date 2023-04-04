@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+.listing-to-question {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.add-to-homework{
+    width: 90%;
+}
+
+.write-question {
+    margin-bottom: 18px;
+    margin-top: 18px;
+    color:#1a6d8c;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    text-align: left;
+}
+.write-question-input{
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    
+}
+
+
+
+
+
+
+
+.student-detail {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.student-detail p {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5rem;
+    color: #051427;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+
+.homework-date{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    color:#1a6d8c;
+    font-weight: 800;
+    font-family: 'Times New Roman', Times, serif;
+}
+.homework-input-date{
+    margin-left: 10px;
+}
