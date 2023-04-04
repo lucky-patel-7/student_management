@@ -26,13 +26,12 @@ pipeline {
     }
   }
   post {
+    success {
+    emailext attachLog: true, body: '''Hello there! Here is your build results attached.''', subject: 'Success Build Results', to: 'lbp7198@gmail.com'
+    }
     failure {
-      script {
-        def consoleLog = currentBuild.rawBuild.getLog(1000)
-        mail to: "lbp7198@gmail.com",
-             subject: "Build failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
-             body: "The build failed. Please check the console output:\n\n${consoleLog}\n\n${env.BUILD_URL}"
-      }
+    emailext attachLog: true, body: '''Hello there! Here is your build results attached.''', subject: 'Failure Build Results', to: 'lbp7198@gmail.com'
+    }
     }
   }
 }
