@@ -24,12 +24,12 @@ pipeline {
         sh 'cd client && npm test'
       }
     }
-    post {
-      failure {
-        mail to: "lbp7198@gmail.com",
-             subject: "Build failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
-             body: "The build failed. Please check the console output.\n\n${env.BUILD_URL}"
-      }
+  }
+  post {
+    failure {
+      mail to: "lbp7198@gmail.com",
+           subject: "Build failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
+           body: "The build failed. Please check the console output.\n\n${env.BUILD_URL}"
     }
   }
 }
