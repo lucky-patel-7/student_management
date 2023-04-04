@@ -29,7 +29,7 @@ pipeline {
     failure {
       emailext body: "The build failed. Please check the console output.",
                subject: "Build failed: ${currentBuild.fullDisplayName}",
-               to: "lbp7198@example.com"
+               to: "lbp7198@gmail.com"
     }
   }
 }
