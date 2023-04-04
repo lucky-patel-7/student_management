@@ -26,10 +26,10 @@ pipeline {
     }
   }
     post {
-    failure {
-      emailext body: "The build failed. Please check the console output.",
-               subject: "Build failed: ${currentBuild.fullDisplayName}",
-               to: "lbp7198@gmail.com"
+     failure {
+      mail to: "youremail@example.com",
+           subject: "Build failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
+           body: "The build failed. Please check the console output.\n\n${env.BUILD_URL}"
     }
   }
 }
