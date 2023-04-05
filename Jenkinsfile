@@ -1,14 +1,12 @@
 pipeline {
   agent any
+   triggers {
+    githubPush(branch: 'main')
+  }
   tools {
     nodejs '19.8.1'
   }
   stages {
-    stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
     stage('Build server') {
       steps {
         sh 'cd server && npm install'
