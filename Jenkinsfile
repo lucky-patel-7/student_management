@@ -49,7 +49,9 @@ pipeline {
     }
      stage('Start client') {
       steps {
-        sh 'cd client && npm start'
+        sh 'cd server && npm start &'
+        sleep 10
+
       }
     }
   }
