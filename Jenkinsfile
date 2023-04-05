@@ -1,7 +1,7 @@
 pipeline {
   agent any
    triggers {
-    githubPush(branch: 'main')
+    githubPush(branch: "null")
   }
   tools {
     nodejs '19.8.1'
