@@ -19,12 +19,6 @@ const DATABASE_URL = "mongodb://admin:silvertouch@192.168.0.163:27017/?authMecha
 app.use(cors("*"))
 app.use(express.json())
 connectDB(DATABASE_URL)
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
-
-
-
-
-
 
 app.get('/api/', (req, res) => {
     res.send('Hello World')
