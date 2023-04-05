@@ -17,10 +17,10 @@ pipeline {
   }
   post {
     success {
-    emailext attachLog: true, body: '''Hello there! Here is your build results attached.''', subject: 'Success Build Results', to: 'lbp7198@gmail.com'
+    emailext attachLog: true, body: 'Hello there! Here is your build results attached.', subject: 'Success Build Results', to: 'lbp7198@gmail.com'
     }
     failure {
-    emailext attachLog: true, body: '''Hello there! Here is your build results attached.''', subject: 'Failure Build Results', to: 'lbp7198@gmail.com'
+    emailext attachLog: true, body: 'Hello there! Here is your build results attached.', subject: 'Failure Build Results', to: 'lbp7198@gmail.com'
     }
     }
   }
