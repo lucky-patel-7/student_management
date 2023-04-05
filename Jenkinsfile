@@ -31,9 +31,10 @@ pipeline {
     }
   }
 }
-     stage('Start server') {
+      stage('Start Server') {
       steps {
-        sh 'cd server && npm start'
+        sh 'cd server && npm start &'
+        sleep 10
       }
     }
 
@@ -49,7 +50,7 @@ pipeline {
     }
      stage('Start client') {
       steps {
-        sh 'cd server && npm start &'
+        sh 'cd client && npm start &'
         sleep 10
 
       }
