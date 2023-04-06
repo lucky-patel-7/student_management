@@ -31,11 +31,6 @@ pipeline {
     }
   }
 }
-      stage('Start Server') {
-      steps {
-        sh 'cd server && npm start &'
-      }
-    }
 
     stage('Build client') {
       steps {
@@ -47,11 +42,7 @@ pipeline {
         sh 'cd client && npm test'
       }
     }
-     stage('Start client') {
-      steps {
-        sh 'cd client && npm start &'
-      }
-    }
+   
   }
   post {
     success {
