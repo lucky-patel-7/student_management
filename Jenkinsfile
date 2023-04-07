@@ -49,7 +49,7 @@ pipeline {
    stage('Test client') {
   steps {
     sh 'cd client && npm test'
-input message: 'Finished using the web site? (Click "Proceed" to continue)', submitter: 'user', timeout: time(minutes: 3),id: 'user-input'
+input message: 'Finished using the web site? (Click "Proceed" to continue)'
 
         
   }
