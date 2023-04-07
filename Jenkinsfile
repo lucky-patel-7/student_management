@@ -76,13 +76,5 @@ pipeline {
       }
     }
 
-    post {
-      success {
-        emailext attachLog: true, body: '''Hello there! Here is your overall progress results attached.''', subject: 'overall progress success results', to: 'lucky.patel@silvertouch.com'
-      }
-      failure {
-        emailext attachLog: true, body: '''Hello there! Here is your overall progress results attached.''', subject: 'overall progress failure Results', to: 'lucky.patel@silvertouch.com'
-      }
-    }
-  }
+    
 }
