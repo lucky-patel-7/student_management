@@ -62,19 +62,19 @@ pipeline {
     
     
     
-    stage('Making Client Build') {
-      steps {
-        sh 'cd client && npm build'
-      }
-      post {
-        success {
-          emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: ' Build Is Successfull', to: 'lucky.patel@silvertouch.com'
-        }
-        failure {
-          emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: 'Build Is Failed', to: 'lucky.patel@silvertouch.com'
-        }
-      }
-    }
+//     stage('Making Client Build') {
+//       steps {
+//         sh 'cd client && npm build'
+//       }
+//       post {
+//         success {
+//           emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: ' Build Is Successfull', to: 'lucky.patel@silvertouch.com'
+//         }
+//         failure {
+//           emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: 'Build Is Failed', to: 'lucky.patel@silvertouch.com'
+//         }
+//       }
+//     }
 
   }  
 }
