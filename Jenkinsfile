@@ -4,52 +4,85 @@ pipeline {
     nodejs '19.8.1'
   }
   stages {
-    stage('Build server') {
-  steps {
-    sh 'cd server && npm install'
-  }
-  post {
-    success {
-      emailext attachLog: true, body: '''Hello there! Here is your build results attached.''', subject: 'Build server success', to: 'lucky.patel@silvertouch.com'
+    stage('Build Server') {
+      steps {
+        sh 'cd server && npm install'
+      }
+      post {
+        success {
+          emailext attachLog: true, body: '''Hello there! Here is your Server build results attached.''', subject: 'Build server success', to: 'lucky.patel@silvertouch.com'
+        }
+        failure {
+          emailext attachLog: true, body: '''Hello there! Here is your Server build results attached.''', subject: 'Build server failed', to: 'lucky.patel@silvertouch.com'
+        }
+      }
     }
-    failure {
-      emailext attachLog: true, body: '''Hello there! Here is your build results attached.''', subject: 'Build server failed', to: 'lucky.patel@silvertouch.com'
-    }
-  }
-}
 
-    stage('Test server') {
-  steps {
-    sh 'cd server && npm test'
-  }
-  post {
-    success {
-      emailext attachLog: true, body: '''Hello there! Here is your build results attached.''', subject: 'Build test success', to: 'lucky.patel@silvertouch.com'
+    stage('Test Server') {
+      steps {
+        sh 'cd server && npm test'
+      }
+      post {
+        success {
+          emailext attachLog: true, body: '''Hello there! Here is your Server Test results attached.''', subject: ' Server Test Success', to: 'lucky.patel@silvertouch.com'
+        }
+        failure {
+          emailext attachLog: true, body: '''Hello there! Here is your Server Test results attached.''', subject: 'Server Test Failed', to: 'lucky.patel@silvertouch.com'
+        }
+      }
     }
-    failure {
-      emailext attachLog: true, body: '''Hello there! Here is your build results attached.''', subject: 'Build test failed', to: 'lucky.patel@silvertouch.com'
-    }
-  }
-}
 
-    stage('Build client') {
+    stage('Build Client') {
       steps {
         sh 'cd client && npm install'
       }
+      post {
+        success {
+          emailext attachLog: true, body: '''Hello there! Here is your Client Build results attached.''', subject: ' Client Build Success', to: 'lucky.patel@silvertouch.com'
+        }
+        failure {
+          emailext attachLog: true, body: '''Hello there! Here is your Client Build results attached.''', subject: 'Client Build Failed', to: 'lucky.patel@silvertouch.com'
+        }
+      }
     }
+
     stage('Test client') {
       steps {
         sh 'cd client && npm test'
       }
+      post {
+        success {
+          emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: ' Client Test Success', to: 'lucky.patel@silvertouch.com'
+        }
+        failure {
+          emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: 'Client Test Failed', to: 'lucky.patel@silvertouch.com'
+        }
+      }
     }
-   
+    
+    
+    
+    stage('Making Client Build') {
+      steps {
+        sh 'cd client && npm build'
+      }
+      post {
+        success {
+          emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: ' Build Is Successfull', to: 'lucky.patel@silvertouch.com'
+        }
+        failure {
+          emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: 'Build Is Failed', to: 'lucky.patel@silvertouch.com'
+        }
+      }
+    }
+
+    post {
+      success {
+        emailext attachLog: true, body: '''Hello there! Here is your overall progress results attached.''', subject: 'overall progress success results', to: 'lucky.patel@silvertouch.com'
+      }
+      failure {
+        emailext attachLog: true, body: '''Hello there! Here is your overall progress results attached.''', subject: 'overall progress failure Results', to: 'lucky.patel@silvertouch.com'
+      }
+    }
   }
-  post {
-    success {
-    emailext attachLog: true, body: '''Hello there! Here is your build results attached.''', subject: 'Success Build Results', to: 'lucky.patel@silvertouch.com'
-    }
-    failure {
-    emailext attachLog: true, body: '''Hello there! Here is your build results attached.''', subject: 'Failure Build Results', to: 'lucky.patel@silvertouch.com'
-    }
-    }
-  }
+}
