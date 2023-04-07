@@ -46,19 +46,29 @@ pipeline {
       }
     }
 
-    stage('Test client') {
-      steps {
-        sh 'cd client && npm test'
-      }
-      post {
-        success {
-          emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: ' Client Test Success', to: 'lucky.patel@silvertouch.com'
-        }
-        failure {
-          emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: 'Client Test Failed', to: 'lucky.patel@silvertouch.com'
-        }
+   stage('Test client') {
+  steps {
+    sh 'cd client && npm test'
+    input message: 'Finished using the web site? (Click "Proceed" to continue)', timeout: 30
+        
+  }
+  post {
+    success {
+      emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: ' Client Test Success', to: 'lucky.patel@silvertouch.com'
+    }
+    failure {
+      emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: 'Client Test Failed', to: 'lucky.patel@silvertouch.com'
+    }
+    always {
+      timeout(time: 1, unit: 'HOURS') {
+        // Abort the pipeline after the Test client stage completes and the user clicks "Proceed"
+        // This ensures that the pipeline does not wait indefinitely for user input
+        error 'Pipeline aborted by timeout'
       }
     }
+  }
+}
+
     
     
     
