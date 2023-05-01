@@ -50,7 +50,7 @@ COPY NodEnginx.conf /etc/nginx/nginx.conf
 RUN apk add --update nginx
 
 # exposing our port
-EXPOSE 80
+EXPOSE 90
 
 # running our image
 CMD ["sh", "-c", "nginx && DEBUG=express:* node index.js"]
