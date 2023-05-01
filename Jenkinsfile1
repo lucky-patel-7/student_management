@@ -1,20 +1,11 @@
 pipeline {
-    agent any
-    stages {
-        stage('Setup Docker') {
-            steps {
-                script {
-                    def dockerImage = 'docker:latest'
-                    def dockerSocket = '/var/run/docker.sock:/var/run/docker.sock'
-                    docker.withRegistry('') {
-                        docker.image(dockerImage).pull()
-                    }
-                    docker.image(dockerImage).inside("--privileged -v ${dockerSocket}") {
-                        sh 'docker --version'
-                    }
-                }
-            }
+    agent {
+        docker {
+            image 'docker:dind'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
+    }
+    stages {
         stage('Build and Publish Docker Image') {
             environment {
                 IMAGE_NAME = 'test'
