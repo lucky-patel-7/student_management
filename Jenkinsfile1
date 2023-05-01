@@ -75,7 +75,7 @@ pipeline {
             }
             steps {
                 sh "docker build --build-arg GIT_USERNAME=$GIT_USERNAME --build-arg GIT_PASSWORD=$GIT_PASSWORD -f ./NodeDocker -t $IMAGE_NAME ."
-                sh "docker run -d -p 80:8090 $IMAGE_NAME"
+                sh "docker run -d -p 8091:8090 $IMAGE_NAME"
             }
             post {
                 success {
