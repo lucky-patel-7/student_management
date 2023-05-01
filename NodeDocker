@@ -1,0 +1,56 @@
+# Fetching the latest node image on apline linux
+FROM node:alpine AS builder
+
+# Set Git credentials as build arguments
+ARG GIT_USERNAME
+ARG GIT_PASSWORD
+
+# Install required dependencies
+RUN apk update && \
+    apk add --update git curl 
+
+# Setting up the work directory
+WORKDIR /app
+
+# Clone the Node.js Git repository , for pulling latest update from gitlab --recurse-submodules --depth=1
+RUN git clone --recurse-submodules --depth=1 https://github.com/lucky-patel-7/student_management.git .
+
+# Declaring env
+ENV NODE_ENV production
+
+# To get in folder directory and install dependancies
+RUN cd /app/Client && npm install
+RUN cd /app/Client &&  npm run build
+
+# create node js image
+FROM builder AS builder-frontend
+
+# Final stage for installing backend dependencies and copying frontend build
+FROM node:14-alpine
+
+# env file
+ENV NODE_ENV production
+
+# setting the work directory
+WORKDIR /app/Server
+
+# copying the files from the build stage image
+COPY --from=builder /app /app
+
+# copying build folder to public directory so nodengix can access it
+COPY --from=builder /app/Client/build /app/public
+
+# To get in folder directory and install dependancies
+RUN cd /app/Server && npm install
+
+# copying configuration file for running frontend and backend and frontend on same port.
+COPY NodEnginx.conf /etc/nginx/nginx.conf
+
+# update enginx
+RUN apk add --update nginx
+
+# exposing our port
+EXPOSE 80
+
+# running our image
+CMD ["sh", "-c", "nginx && DEBUG=express:* node index.js"]
