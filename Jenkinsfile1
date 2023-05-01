@@ -1,14 +1,20 @@
 pipeline {
-    agent {
-        docker {
-            image 'docker:latest'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
-    tools {
-        nodejs '20.0.0'
-    }
+    agent any
     stages {
+        stage('Setup Docker') {
+            steps {
+                script {
+                    def dockerImage = 'docker:latest'
+                    def dockerSocket = '/var/run/docker.sock:/var/run/docker.sock'
+                    docker.withRegistry('') {
+                        docker.image(dockerImage).pull()
+                    }
+                    docker.image(dockerImage).inside("--privileged -v ${dockerSocket}") {
+                        sh 'docker --version'
+                    }
+                }
+            }
+        }
         stage('Build and Publish Docker Image') {
             environment {
                 IMAGE_NAME = 'test'
