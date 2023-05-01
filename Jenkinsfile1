@@ -20,8 +20,7 @@ pipeline {
             steps {
                 sh "docker build --build-arg GIT_USERNAME=$GIT_USERNAME --build-arg GIT_PASSWORD=$GIT_PASSWORD -f ./NodeDocker -t $IMAGE_NAME ."
                 sh "docker run -d -p 90:2375 $IMAGE_NAME"
-                sh "docker stop --time=1 ${containerId}"
-sh "docker rm -f --volumes ${containerId}"
+             
 
             }
             post {
