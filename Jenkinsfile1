@@ -25,6 +25,18 @@ pipeline {
                 }
             }
         }
+
+        stage('Check Website') {
+            steps {
+                script {
+                    def response = httpRequest url: 'http://192.168.0.162/80', httpMethod: 'HEAD'
+                    if (response.status == 200) {
+                        echo 'Website is running'
+                    } else {
+                        error 'Website is not running'
+                    }
+                }
+            }
+        }
     }
 }
-
