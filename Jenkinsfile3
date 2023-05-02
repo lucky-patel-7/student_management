@@ -13,6 +13,7 @@ pipeline {
     stages {
         stage('Build Server') {
             steps {
+            sh 'which npm'
                 sh 'cd /var/jenkins_home/workspace/project_2/Server && npm install'
             }
             post {
