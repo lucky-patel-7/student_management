@@ -44,9 +44,9 @@ pipeline {
                         def emailBody = 'Website check result: '
                         def response = httpRequest url: 'http://192.168.0.162/80', httpMethod: 'HEAD'
                         if (response.status == 200) {
-                            emailBody += 'Website is running'
+                            emailBody += 'Website is running properly check here http://192.168.0.162/80'
             } else {
-                            emailBody += 'Website is not running'
+                            emailBody += 'Website is not running, please check the configurations'
                         }
                         emailext attachLog: true, body: emailBody, subject: emailSubject, to: 'lucky.patel@silvertouch.com'
                     }
