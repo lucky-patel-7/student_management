@@ -14,7 +14,7 @@ pipeline {
             }
             steps {
                 sh "docker -H tcp://192.168.0.162:2375 build --build-arg GIT_USERNAME=$GIT_USERNAME --build-arg GIT_PASSWORD=$GIT_PASSWORD -f ./NodeDocker -t $IMAGE_NAME ."
-                sh "docker -H tcp://192.168.0.162:2375 run -d  --name ourApp1 -p 80:80 test"
+                sh 'docker -H tcp://192.168.0.162:2375 run -d  --name ourApp1 -p 80:80 test'
             }
             post {
                 success {
@@ -34,6 +34,21 @@ pipeline {
                         echo 'Website is running'
                     } else {
                         error 'Website is not running'
+                    }
+                }
+            }
+            post {
+                always {
+                    script {
+                        def emailSubject = 'Website Check Results'
+                        def emailBody = 'Website check result: '
+                        def response = httpRequest url: 'http://192.168.0.162/80', httpMethod: 'HEAD'
+                        if (response.status == 200) {
+                            emailBody += 'Website is running'
+            } else {
+                            emailBody += 'Website is not running'
+                        }
+                        emailext attachLog: true, body: emailBody, subject: emailSubject, to: 'lucky.patel@silvertouch.com'
                     }
                 }
             }
