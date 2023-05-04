@@ -29,9 +29,9 @@ pipeline {
         stage('Check Website') {
             steps {
                 script {
-                    def response = httpRequest url: 'http://192.168.0.162/80', httpMethod: 'HEAD'
+                    def response = httpRequest url: 'http://192.168.0.162', httpMethod: 'HEAD'
                     if (response.status == 200) {
-                        echo 'Website is running'
+                        echo 'Website is running, You can check it here http://192.168.0.162'
                     } else {
                         error 'Website is not running'
                     }
@@ -42,9 +42,9 @@ pipeline {
                     script {
                         def emailSubject = 'Website Check Results'
                         def emailBody = 'Website check result: '
-                        def response = httpRequest url: 'http://192.168.0.162/80', httpMethod: 'HEAD'
+                        def response = httpRequest url: 'http://192.168.0.162', httpMethod: 'HEAD'
                         if (response.status == 200) {
-                            emailBody += 'Website is running properly check here http://192.168.0.162/80'
+                            emailBody += 'Website is running properly check here http://192.168.0.162'
             } else {
                             emailBody += 'Website is not running, please check the configurations'
                         }
