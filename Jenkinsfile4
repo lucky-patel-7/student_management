@@ -1,16 +1,9 @@
 pipeline {
     agent any 
-    // {
-    //     docker {
-    //         image 'docker:dind'
-    //         args '-v /var/run/docker.sock:/var/run/docker.sock'
-    //     }
-    // }
 
-    tools {
-        nodejs '20.0.0'
-    }
-
+tools{
+nodejs '20.0.0'
+}
     stages {
         stage('Build Server') {
             steps {
@@ -26,94 +19,5 @@ pipeline {
             }
         }
 
-        stage('Test Server') {
-            steps {
-                sh 'cd server && npm test'
-            }
-            post {
-                success {
-                    emailext attachLog: true, body: '''Hello there! Here is your Server Test results attached.''', subject: ' Server Test Success', to: 'lucky.patel@silvertouch.com'
-                }
-                failure {
-                    emailext attachLog: true, body: '''Hello there! Here is your Server Test results attached.''', subject: 'Server Test Failed', to: 'lucky.patel@silvertouch.com'
-                }
-            }
-        }
-
-        stage('Build Client') {
-            steps {
-                sh 'cd client && npm install'
-            }
-            post {
-                success {
-                    emailext attachLog: true, body: '''Hello there! Here is your Client Build results attached.''', subject: ' Client Build Success', to: 'lucky.patel@silvertouch.com'
-                }
-                failure {
-                    emailext attachLog: true, body: '''Hello there! Here is your Client Build results attached.''', subject: 'Client Build Failed', to: 'lucky.patel@silvertouch.com'
-                }
-            }
-        }
-
-        stage('Test client') {
-            steps {
-                sh 'cd client && npm test'
-            }
-            post {
-                success {
-                    emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: ' Client Test Success', to: 'lucky.patel@silvertouch.com'
-                }
-                failure {
-                    emailext attachLog: true, body: '''Hello there! Here is your Client Test results attached.''', subject: 'Client Test Failed', to: 'lucky.patel@silvertouch.com'
-                }
-            }
-        }
-
-        // stage('Build and Publish Docker Image') {
-        //     environment {
-        //         IMAGE_NAME = 'test'
-        //         GIT_USERNAME = 'LuckyPatel'
-        //         GIT_PASSWORD = 'Kq6jMBQaYjXzvnx'
-        //     }
-        //     steps {
-        //         sh "docker -H tcp://192.168.0.162:2375 build --build-arg GIT_USERNAME=$GIT_USERNAME --build-arg GIT_PASSWORD=$GIT_PASSWORD -f ./NodeDocker -t $IMAGE_NAME ."
-        //         sh 'docker -H tcp://192.168.0.162:2375 run -d  --name ourApp1 -p 80:80 test'
-        //     }
-        //     post {
-        //         success {
-        //             emailext attachLog: true, body: '''Hello there! Here is your Docker build results attached.''', subject: 'Docker Image Build Success', to: 'lucky.patel@silvertouch.com'
-        //         }
-        //         failure {
-        //             emailext attachLog: true, body: '''Hello there! Here is your Docker build results attached.''', subject: 'Docker Image Build Failed', to: 'lucky.patel@silvertouch.com'
-        //         }
-        //     }
-        // }
-
-        // stage('Check Website') {
-        //     steps {
-        //         script {
-        //             def response = httpRequest url: 'http://192.168.0.162/80', httpMethod: 'HEAD'
-        //             if (response.status == 200) {
-        //                 echo 'Website is running'
-        //             } else {
-        //                 error 'Website is not running'
-        //             }
-        //         }
-        //     }
-        //     post {
-        //         always {
-        //             script {
-        //                 def emailSubject = 'Website Check Results'
-        //                 def emailBody = 'Website check result: '
-        //                 def response = httpRequest url: 'http://192.168.0.162/80', httpMethod: 'HEAD'
-        //                 if (response.status == 200) {
-        //                     emailBody += 'Website is running'
-        //     } else {
-        //                     emailBody += 'Website is not running'
-        //                 }
-        //                 emailext attachLog: true, body: emailBody, subject: emailSubject, to: 'lucky.patel@silvertouch.com'
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
