@@ -94,6 +94,7 @@ pipeline {
         stage('Check Website') {
             steps {
                 script {
+                    sh 'sleep 30s'
                     def response = httpRequest url: 'http://192.168.0.162', httpMethod: 'HEAD'
                     if (response.status == 200) {
                         echo 'Website is running, You can check it here http://192.168.0.162'
